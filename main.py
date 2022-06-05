@@ -124,3 +124,21 @@ def MC(CW_sub):
                 if q == "q":
                     break
 
+def ask(q): #this function works to ask user if s/he wants to quit or not when gets error
+    if q == "q":
+        print("Thank you!")
+    else:
+        print("Let's try again!")
+        user_inp()
+
+def user_inp(): #getting the first input from the user. This function helps us to keep stability
+    CW_sub = input("Did you submitted on time?\n").lower() #we should lowercase every input to prevent furhter errors
+
+    if CW_sub in check_yes or CW_sub in check_no:
+        MC(CW_sub)
+    else:
+        print(common_answers["error"])
+        q = input("If you want to stop programm please enter 'q'\n")
+        ask(q)
+
+user_inp() # we run the program here, and it keeps running until we get the final result
